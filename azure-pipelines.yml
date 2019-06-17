@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  buildConfiguration: 'Release'
+  BuildConfiguraton: 'Release'
 
 steps:
 
@@ -18,15 +18,15 @@ steps:
   inputs:
     command: test
     projects: '**/*Test/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    arguments: '--configuration $(BuildConfiguraton)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtfactStagingDirectory)'
+  displayName: 'dotnet publish --configuration $(BuildConfiguraton) --output $(Build.ArtfactStagingDirectory)'
   inputs:
     command: publish
     publishWebProjects: false
     projects: 'src/SimpleAPI/SimpleAPI.csproj'
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtfactStagingDirectory)'
+    arguments: '--configuration $(BuildConfiguraton) --output $(Build.ArtfactStagingDirectory)'
     zipAfterPubish: true
 
 - task: PublishBuildArtifacts@1

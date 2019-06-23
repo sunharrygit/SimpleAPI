@@ -43,6 +43,7 @@ namespace SimpleAPI
 
             //app.UseHttpsRedirection();  --Comment out this line 
             app.UseMvc();
+            //add testing comment
         }
     }
 }
